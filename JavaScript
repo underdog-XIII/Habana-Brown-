@@ -1,0 +1,30 @@
+async function generarImagen() {
+    const prompt = document.getElementById('prompt').value;
+    const apiKey = 'TU_API_KEY'; // Reemplaza con tu clave de API
+    const response = await fetch('https://api.generadordeimagenes.com/generate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({ prompt })
+    });
+
+    const data = await response.json();
+    document.getElementById('imagen-generada').src = data.imageUrl;
+}
+
+async function cargarNoticias() {
+    const response = await fetch('https://api.noticias.com/latest?categories=cine,musica,videojuegos');
+    const data = await response.json();
+    const noticiasContenido = document.getElementById('noticias-contenido');
+    noticiasContenido.innerHTML = data.articles.map(article => `
+        <div>
+            <h3>${article.title}</h3>
+            <p>${article.description}</p>
+        </div>
+    `).join('');
+}
+
+// Cargar noticias al cargar la página
+cargarNoticias();
