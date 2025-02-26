@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habanabrown</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Habanabrown</h1>
+    </header>
+    <main>
+        <section id="imagen-ia">
+            <h2>Generador de Imágenes</h2>
+            <input type="text" id="prompt" placeholder="Describe la imagen que deseas generar">
+            <button onclick="generarImagen()">Generar Imagen</button>
+            <img id="imagen-generada" src="" alt="Imagen Generada">
+        </section>
+        <section id="noticias">
+            <h2>Noticias</h2>
+            <div id="noticias-contenido"></div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
